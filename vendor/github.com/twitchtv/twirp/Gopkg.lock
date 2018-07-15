@@ -8,14 +8,30 @@
   version = "v1.1.0"
 
 [[projects]]
+  name = "github.com/gogo/protobuf"
+  packages = ["proto"]
+  revision = "342cbe0a04158f6dcb03ca0079991a51a4248c02"
+  version = "v0.5"
+
+[[projects]]
+  branch = "master"
   name = "github.com/golang/protobuf"
   packages = [
     "jsonpb",
     "proto",
-    "ptypes/struct"
+    "protoc-gen-go/descriptor",
+    "protoc-gen-go/plugin",
+    "ptypes/empty",
+    "ptypes/struct",
+    "ptypes/wrappers"
   ]
-  revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
-  version = "v1.1.0"
+  revision = "1e59b77b52bf8e4b449a57e6f79f21226d571845"
+
+[[projects]]
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
+  version = "v0.8.0"
 
 [[projects]]
   name = "github.com/pmezard/go-difflib"
@@ -29,22 +45,12 @@
     "assert",
     "require"
   ]
-  revision = "f35b8ab0b5a2cef36673838d662e249dd9c94686"
-  version = "v1.2.2"
-
-[[projects]]
-  name = "github.com/twitchtv/twirp"
-  packages = [
-    ".",
-    "ctxsetters",
-    "internal/contextkeys"
-  ]
-  revision = "1b8455b42110feb46a56aeec1ea0020067f46b11"
-  version = "v5.4.1"
+  revision = "b91bfb9ebec76498946beb6af7c0230c7cc7ba6c"
+  version = "v1.2.0"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "fbb2249a2cbe10e9fe49e0e68f89ea66e0208e22b5989f0782f72502feaa862f"
+  inputs-digest = "4871cc1866de9f66cab7a24d6f7011b047ce72df4f37684dc46882771608be0c"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -5,6 +5,9 @@ docker_lambda := docker run --rm -v $(CURDIR):$(docker_workdir) -w $(docker_work
 
 .PHONY: deploy
 
+update-deps:
+	dep ensure -update
+
 lint:
 	$(docker_go) gofmt -e -d ./
 	$(docker_go) go vet ./...
