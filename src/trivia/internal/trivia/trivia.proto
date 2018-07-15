@@ -1,0 +1,27 @@
+syntax = "proto3";
+package trivia;
+option go_package = "trivia";
+
+service Trivia {
+    rpc GetQuestion(QuestionType) returns (Question);
+}
+
+message QuestionType {
+    int32 count = 1;
+    enum Difficulty {
+        ANY = 0;
+        EASY = 1;
+        MEDIUM = 2;
+        HARD = 3;
+    }
+    Difficulty difficulty = 2;
+}
+
+message Question {
+    string category = 1;
+    string type = 2;
+    string difficulty = 3;
+    string question = 4;
+    string correct_answer = 5;
+    repeated string incorrect_answers = 6;
+}
