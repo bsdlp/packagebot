@@ -1,0 +1,80 @@
+Item Name,Tier,Type,Minimum,Maximum,Cooldown,Buy Price,Sell Price
+baseball_bat,common,weapon,5,8,0.41 hours,"1,601.60",572
+health_potion,ultra rare,heal,50,60,2.00 hours,"12,100.00","8,800.00"
+ak-47,ultra rare,"weapon,gun",45,52,2.06 hours,N/A,"17,304.80"
+7.62_bullet,rare,ammunition,N/A,N/A,N/A,N/A,"4,854.85"
+bandage,common,heal,1,3,0.09 hours,560,200
+bowling_ball,common,weapon,3,7,0.32 hours,"1,401.40",500.5
+crowbar,uncommon,weapon,11,16,0.79 hours,"2,974.40","1,372.80"
+first_aid_kit,rare,heal,25,30,1.09 hours,"6,600.00","3,850.00"
+frying_pan,common,weapon,3,6,0.28 hours,"1,201.20",429
+golf_club,common,weapon,5,8,0.41 hours,"1,601.60",572
+knuckle_duster,common,weapon,2,4,0.19 hours,800.8,286
+l42_enfield,epic,"weapon,gun",50,70,2.32 hours,N/A,"24,084.00"
+machete,rare,weapon,23,28,1.38 hours,"4,804.80","2,802.80"
+magnet,rare,N/A,N/A,N/A,N/A,N/A,N/A
+piggy_bank,common,money,400,650,N/A,N/A,N/A
+wallet,uncommon,money,1200,1900,N/A,N/A,N/A
+moneybag,rare,money,2300,4200,N/A,N/A,N/A
+safe,ultra rare,money,4999,16050,N/A,N/A,N/A
+treasure_chest,epic,money,24500,42424,N/A,N/A,N/A
+painkillers,uncommon,heal,7,11,0.39 hours,"2,340.00","1,080.00"
+rpg,epic,"weapon,gun,explosive",90,130,2.83 hours,N/A,"61,815.60"
+rpg_rocket,ultra rare,ammunition,N/A,N/A,N/A,N/A,"12,584.00"
+shield,epic,N/A,N/A,N/A,N/A,N/A,"22,499.10"
+sledgehammer,uncommon,weapon,13,18,0.91 hours,"3,346.20","1,544.40"
+.303_bullet,ultra rare,ammunition,N/A,N/A,N/A,N/A,"6,864.00"
+cleaver,rare,weapon,16,21,1.00 hours,"3,603.60","2,102.10"
+scythe,uncommon,weapon,17,20,1.08 hours,"3,718.00","1,716.00"
+fire_axe,rare,weapon,20,25,1.22 hours,"4,290.00","2,502.50"
+tomahawk,rare,weapon,23,28,1.38 hours,"4,804.80","2,802.80"
+katana,ultra rare,weapon,40,45,2.10 hours,"7,078.50","5,148.00"
+shurikens,rare,weapon,16,21,1.00 hours,"3,603.60","2,102.10"
+common_box,common,N/A,N/A,N/A,N/A,"2,256.89",N/A
+uncommon_box,uncommon,N/A,N/A,N/A,N/A,"3,928.67",N/A
+rare_box,rare,N/A,N/A,N/A,N/A,"7,589.07",N/A
+.45_acp_bullet,uncommon,ammunition,N/A,N/A,N/A,N/A,"2,616.90"
+m1911,rare,"weapon,gun",23,38,1.41 hours,N/A,"9,522.10"
+.50ae_bullet,ultra rare,ammunition,N/A,N/A,N/A,N/A,"8,008.00"
+desert_eagle,epic,"weapon,gun",60,80,2.70 hours,N/A,"28,098.00"
+mp5,ultra rare,"weapon,gun",25,55,1.70 hours,N/A,"14,272.00"
+bomb,epic,"weapon,explosive",75,100,2.62 hours,N/A,"18,018.00"
+remington_870,ultra rare,"weapon,gun",10,70,1.70 hours,N/A,"14,272.00"
+12_gauge_bullet,rare,ammunition,N/A,N/A,N/A,N/A,"4,004.00"
+pickaxe,uncommon,weapon,13,18,0.91 hours,"3,346.20","1,544.40"
+butter_knife,common,weapon,2,6,0.25 hours,"1,201.20",429
+shovel,common,weapon,6,12,0.57 hours,"2,402.40",858
+sickle,uncommon,weapon,14,16,0.88 hours,"2,974.40","1,372.80"
+antibiotics,uncommon,heal,9,13,0.47 hours,"2,860.00","1,320.00"
+scar-h,ultra rare,"weapon,gun",38,43,1.72 hours,N/A,"14,450.40"
+grenade,ultra rare,"weapon,explosive",50,70,1.98 hours,"15,415.40","11,211.20"
+wrench,common,weapon,3,6,0.28 hours,"1,201.20",429
+scissors,common,weapon,4,7,0.35 hours,"1,401.40",500.5
+ultra_rare_box,ultra rare,N/A,N/A,N/A,N/A,"13,686.30",N/A
+9mm_bullet,uncommon,ammunition,N/A,N/A,N/A,N/A,"3,432.00"
+thompson,rare,"weapon,gun",15,45,1.39 hours,N/A,"9,366.00"
+.50_bmg_bullet,ultra rare,ammunition,N/A,N/A,N/A,N/A,"9,152.00"
+barrett_m82,epic,"weapon,gun",75,85,3.09 hours,N/A,"32,112.00"
+.308_winchester_bullet,ultra rare,ammunition,N/A,N/A,N/A,N/A,"8,294.00"
+awp,epic,"weapon,gun",65,80,2.80 hours,N/A,"29,101.50"
+hammer,common,weapon,5,8,0.41 hours,"1,601.60",572
+broken_bottle,uncommon,weapon,9,14,0.67 hours,N/A,N/A
+bottle,common,"weapon,shatter",1,3,0.01 hours,600.6,214.5
+dynamite,ultra rare,"weapon,explosive",45,55,1.65 hours,"12,112.10","8,808.80"
+5.56_bullet,rare,ammunition,N/A,N/A,N/A,N/A,"4,404.40"
+m4_carbine,ultra rare,"weapon,gun",40,48,1.87 hours,N/A,"15,699.20"
+vector,rare,"weapon,gun",23,34,1.32 hours,N/A,"8,897.70"
+lesser_health_potion,rare,heal,27,32,1.17 hours,"7,080.00","4,130.00"
+exp_potion,rare,N/A,N/A,N/A,N/A,N/A,"6,142.50"
+lesser_exp_potion,uncommon,N/A,N/A,N/A,N/A,N/A,"2,457.00"
+2mm_bullet,common,ammunition,N/A,N/A,N/A,N/A,858
+kolibri,common,"weapon,gun",8,16,0.65 hours,N/A,"2,676.00"
+mac-10,rare,"weapon,gun",15,40,1.27 hours,N/A,"8,585.50"
+wooden_arrow,common,ammunition,N/A,N/A,N/A,N/A,"1,394.25"
+wooden_bow,uncommon,"weapon,gun",17,22,0.98 hours,N/A,"5,218.20"
+shank,common,weapon,3,7,0.32 hours,"1,401.40",500.5
+.41_rimfire_bullet,common,ammunition,N/A,N/A,N/A,N/A,"1,573.00"
+derringer,uncommon,"weapon,gun",20,24,1.10 hours,N/A,"5,887.20"
+kilij,rare,weapon,22,26,1.30 hours,"4,461.60","2,602.60"
+25mm_grenade,rare,ammunition,N/A,N/A,N/A,N/A,"7,607.60"
+xm25,ultra rare,"weapon,gun,explosive",72,80,2.15 hours,N/A,"37,963.52"
