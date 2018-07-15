@@ -1,0 +1,13 @@
+{
+  "Tools": [
+    {
+      "Repository": "github.com/golang/protobuf/protoc-gen-go",
+      "Commit": "14aad3d5ea4c323bcd7a2137e735da24a76e814c"
+    },
+    {
+      "Repository": "github.com/twitchtv/twirp/protoc-gen-twirp",
+      "Commit": "cafc5e80fca7798e94ce566e8c4890460884a66f"
+    }
+  ],
+  "RetoolVersion": "1.3.3"
+}
