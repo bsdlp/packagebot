@@ -15,9 +15,13 @@ lint:
 test:
 	$(docker_go) go test ./...
 
-build_lambdas:
+build_binaries:
+	$(docker_go) go build -o build/trivia/main ./src/trivia/main.go
 
-build: build_lambdas
+build_lambdas:
+	$(docker_lambda) zip -j build/trivia.zip build/trivia/main
+
+build: build_binaries build_lambdas
 
 deploy_lambdas:
 deploy:
