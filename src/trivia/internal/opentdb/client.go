@@ -5,8 +5,13 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
+	"net/url"
+	"strings"
+
+	"github.com/bsdlp/packagebot/src/trivia/internal/trivia"
 )
 
 type apiResponse struct {
@@ -41,19 +46,35 @@ func (s *base64EncodedString) UnmarshalJSON(bs []byte) error {
 	return nil
 }
 
-// Question describes a trivia question
-type Question struct {
-	Category         string
-	Type             string
-	Difficulty       string
-	Question         string
-	CorrectAnswer    string
-	IncorrectAnswers []string
+func buildURL(opt *trivia.QuestionType) string {
+	if opt == nil {
+		return "https://opentdb.com/api.php?amount=1&type=multiple&encode=base64"
+	}
+
+	u := &url.URL{
+		Scheme: "https",
+		Host:   "opentdb.com",
+		Path:   "api.php",
+	}
+
+	kv := u.Query()
+	kv.Set("type", "multiple")
+	kv.Set("encode", "base64")
+
+	if opt.GetCount() == 0 {
+		kv.Set("amount", "1")
+	} else {
+		kv.Set("amount", fmt.Sprint(opt.GetCount()))
+	}
+	kv.Set("difficulty", strings.ToLower(opt.GetDifficulty().String()))
+
+	u.RawQuery = kv.Encode()
+	return u.String()
 }
 
 // GetQuestion retrieves a trivia question
-func GetQuestion(ctx context.Context) (question Question, err error) {
-	resp, err := http.Get("https://opentdb.com/api.php?amount=1&type=multiple&encode=base64")
+func GetQuestion(ctx context.Context, questionType *trivia.QuestionType) (question *trivia.Question, err error) {
+	resp, err := http.Get(buildURL(questionType))
 	if err != nil {
 		return
 	}
@@ -75,7 +96,7 @@ func GetQuestion(ctx context.Context) (question Question, err error) {
 		return
 	}
 
-	question = Question{
+	question = &trivia.Question{
 		Category:         string(r.Results[0].Category),
 		Type:             string(r.Results[0].Type),
 		Difficulty:       string(r.Results[0].Difficulty),

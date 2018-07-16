@@ -32,7 +32,7 @@ func TestUnmarshalJSON(t *testing.T) {
 }
 
 func TestGetQuestion(t *testing.T) {
-	question, err := GetQuestion(context.TODO())
+	question, err := GetQuestion(context.TODO(), nil)
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, question.Category)
