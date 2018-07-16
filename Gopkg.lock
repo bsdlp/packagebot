@@ -2,6 +2,23 @@
 
 
 [[projects]]
+  name = "github.com/akrylysov/algnhsa"
+  packages = ["."]
+  revision = "3408c47d3eee81bb7f6a4e6ebe20e9121a13f385"
+  version = "v0.7"
+
+[[projects]]
+  name = "github.com/aws/aws-lambda-go"
+  packages = [
+    "events",
+    "lambda",
+    "lambda/messages",
+    "lambdacontext"
+  ]
+  revision = "4d30d0ff60440c2d0480a15747c96ee71c3c53d4"
+  version = "v1.2.0"
+
+[[projects]]
   name = "github.com/davecgh/go-spew"
   packages = ["spew"]
   revision = "346938d642f2ec3594ed81d874461961cd0faa76"
@@ -45,6 +62,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "fbb2249a2cbe10e9fe49e0e68f89ea66e0208e22b5989f0782f72502feaa862f"
+  inputs-digest = "8b6e9f0a38d02d9b6ad8748009a0ed15ecddd5d7c9f3582679a5dc3c9508e639"
   solver-name = "gps-cdcl"
   solver-version = 1

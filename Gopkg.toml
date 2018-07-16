@@ -37,6 +37,10 @@
   name = "github.com/twitchtv/twirp"
   version = "5.4.1"
 
+[[constraint]]
+  name = "github.com/akrylysov/algnhsa"
+  version = "0.7"
+
 [prune]
   go-tests = true
   unused-packages = true
