@@ -35,4 +35,5 @@ func hashQuestion(question *opentdb.Question) (key string, err error) {
 		}
 	}
 	key = string(hasher.Sum(nil))
+	return
 }

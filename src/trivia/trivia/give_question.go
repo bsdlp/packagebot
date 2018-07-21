@@ -16,6 +16,7 @@ func marshalQuestion(question *opentdb.Question) map[string]interface{} {
 	hash["Question"] = question.Question
 	hash["CorrectAnswer"] = question.CorrectAnswer
 	hash["IncorrectAnswers"] = question.IncorrectAnswers
+	return hash
 }
 
 func (svc *Service) commitQuestion(ctx context.Context, question *opentdb.Question) error {
@@ -51,7 +52,7 @@ func (svc *Service) GiveQuestion(ctx context.Context, opt *GiveQuestionInput) (*
 	}
 
 	// shuffle correct answer's placement in choices so it's a fair question
-	choices = append(question.IncorrectAnswers, question.CorrectAnswer)
+	choices := append(question.IncorrectAnswers, question.CorrectAnswer)
 	svc.shuffleChoices(choices)
 
 	// send trivia to channel

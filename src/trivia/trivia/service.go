@@ -1,6 +1,7 @@
 package trivia
 
 import (
+	"context"
 	crand "crypto/rand"
 	"math/big"
 	"math/rand"
@@ -9,10 +10,16 @@ import (
 	"github.com/go-redis/redis"
 )
 
+// RedisClient describes a redis client
+type RedisClient interface {
+	redis.Cmdable
+	WithContext(context.Context) RedisClient
+}
+
 // Service implements Trivia
 type Service struct {
 	Outbound    outbound.Outbound
-	QuestionsDB redis.Cmdable
+	QuestionsDB RedisClient
 	Rand        *rand.Rand
 }
 
@@ -28,7 +35,7 @@ func (crs cryptoRandSource) Int63() int64 {
 	if err != nil {
 		panic(err)
 	}
-	n := nBig.Int64()
+	return nBig.Int64()
 }
 
 func (crs cryptoRandSource) Seed(seed int64) {}
