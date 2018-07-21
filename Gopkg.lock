@@ -25,10 +25,26 @@
   version = "v1.1.0"
 
 [[projects]]
+  name = "github.com/go-redis/redis"
+  packages = [
+    ".",
+    "internal",
+    "internal/consistenthash",
+    "internal/hashtag",
+    "internal/pool",
+    "internal/proto",
+    "internal/singleflight",
+    "internal/util"
+  ]
+  revision = "83fb42932f6145ce52df09860384a4653d2d332a"
+  version = "v6.12.0"
+
+[[projects]]
   name = "github.com/golang/protobuf"
   packages = [
     "jsonpb",
     "proto",
+    "ptypes/empty",
     "ptypes/struct"
   ]
   revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
@@ -62,6 +78,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8b6e9f0a38d02d9b6ad8748009a0ed15ecddd5d7c9f3582679a5dc3c9508e639"
+  inputs-digest = "334f00957deb3395c338efde59adac2157a6dd11dd19e46cac96f1f2cdca18c3"
   solver-name = "gps-cdcl"
   solver-version = 1
