@@ -1,0 +1,29 @@
+syntax = "proto3";
+package trivia;
+option go_package = "trivia";
+
+import "google/protobuf/empty.proto";
+
+service Trivia {
+    rpc GiveQuestion(GiveQuestionInput) returns (google.protobuf.Empty);
+    rpc AnswerQuestion(AnswerQuestionInput) returns (google.protobuf.Empty);
+}
+
+message GiveQuestionInput {
+    enum Difficulty {
+        ANY = 0;
+        EASY = 1;
+        MEDIUM = 2;
+        HARD = 3;
+    }
+    Difficulty difficulty = 1;
+    string RequestingUserID = 2;
+    string ChannelID = 3;
+}
+
+message AnswerQuestionInput {
+    string QuestionID = 1;
+    string RequestingUserID = 2;
+    string ChannelID = 3;
+    string Answer = 4;
+}

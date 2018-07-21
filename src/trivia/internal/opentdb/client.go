@@ -5,13 +5,10 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io"
 	"net/http"
 	"net/url"
 	"strings"
-
-	"github.com/bsdlp/packagebot/src/trivia/internal/trivia"
 )
 
 type apiResponse struct {
@@ -26,6 +23,16 @@ type question struct {
 	Question         base64EncodedString   `json:"question"`
 	CorrectAnswer    base64EncodedString   `json:"correct_answer"`
 	IncorrectAnswers []base64EncodedString `json:"incorrect_answers"`
+}
+
+// Question is a trivia question
+type Question struct {
+	Category         string
+	Type             string
+	Difficulty       string
+	Question         string
+	CorrectAnswer    string
+	IncorrectAnswers []string
 }
 
 type base64EncodedString string
@@ -46,7 +53,7 @@ func (s *base64EncodedString) UnmarshalJSON(bs []byte) error {
 	return nil
 }
 
-func buildURL(opt *trivia.QuestionType) string {
+func buildURL(opt *QuestionParameters) string {
 	if opt == nil {
 		return "https://opentdb.com/api.php?amount=1&type=multiple&encode=base64"
 	}
@@ -61,20 +68,21 @@ func buildURL(opt *trivia.QuestionType) string {
 	kv.Set("type", "multiple")
 	kv.Set("encode", "base64")
 
-	if opt.GetCount() == 0 {
-		kv.Set("amount", "1")
-	} else {
-		kv.Set("amount", fmt.Sprint(opt.GetCount()))
-	}
-	kv.Set("difficulty", strings.ToLower(opt.GetDifficulty().String()))
+	kv.Set("amount", "1")
+	kv.Set("difficulty", strings.ToLower(opt.Difficulty))
 
 	u.RawQuery = kv.Encode()
 	return u.String()
 }
 
+// QuestionParameters contains the parameters for the question to retrieve
+type QuestionParameters struct {
+	Difficulty string
+}
+
 // GetQuestion retrieves a trivia question
-func GetQuestion(ctx context.Context, questionType *trivia.QuestionType) (question *trivia.Question, err error) {
-	resp, err := http.Get(buildURL(questionType))
+func GetQuestion(ctx context.Context, opts *QuestionParameters) (question *Question, err error) {
+	resp, err := http.Get(buildURL(opts))
 	if err != nil {
 		return
 	}
@@ -96,7 +104,7 @@ func GetQuestion(ctx context.Context, questionType *trivia.QuestionType) (questi
 		return
 	}
 
-	question = &trivia.Question{
+	question = &Question{
 		Category:         string(r.Results[0].Category),
 		Type:             string(r.Results[0].Type),
 		Difficulty:       string(r.Results[0].Difficulty),

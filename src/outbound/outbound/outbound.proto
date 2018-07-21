@@ -1,0 +1,33 @@
+syntax = "proto3";
+package outbound;
+option go_package = "outbound";
+
+import "google/protobuf/empty.proto";
+
+service Outbound {
+    rpc SendChannelMessage(SendChannelMessageInput) returns (google.protobuf.Empty);
+    rpc SendChannelTrivia(SendChannelTriviaInput) returns (google.protobuf.Empty);
+    rpc SendChannelTriviaAnswer(SendChannelTriviaAnswerInput) returns (google.protobuf.Empty);
+}
+
+message SendChannelMessageInput {
+    string ChannelID = 1;
+    string Message = 2;
+}
+
+message SendChannelTriviaInput {
+    string TriviaID = 1;
+    string ChannelID = 2;
+    string RequestingUserID = 3;
+    string Category = 4;
+    string Difficulty = 5;
+    repeated string Choices = 6;
+}
+
+message SendChannelTriviaAnswerInput {
+    string ChannelID = 1;
+    string RequestingUserID = 2;
+    string CorrectAnswer = 3;
+    string UserAnswer = 4;
+    bool Timeout = 5;
+}
