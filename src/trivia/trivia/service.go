@@ -7,6 +7,7 @@ import (
 	"math/rand"
 
 	"github.com/bsdlp/packagebot/src/outbound/outbound"
+	"github.com/bsdlp/packagebot/src/trivia/internal/opentdb"
 	"github.com/go-redis/redis"
 )
 
@@ -21,6 +22,7 @@ type Service struct {
 	Outbound    outbound.Outbound
 	QuestionsDB RedisClient
 	Rand        *rand.Rand
+	GetQuestion func(context.Context, *opentdb.QuestionParameters) (*opentdb.Question, error)
 }
 
 // NewCryptoRand creates a crypto/rand backed *rand.Rand

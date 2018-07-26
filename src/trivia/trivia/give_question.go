@@ -2,30 +2,39 @@ package trivia
 
 import (
 	"context"
+	"encoding/json"
+	"errors"
+	"time"
 
 	"github.com/bsdlp/packagebot/src/outbound/outbound"
 	"github.com/bsdlp/packagebot/src/trivia/internal/opentdb"
 	"github.com/golang/protobuf/ptypes/empty"
 )
 
-func marshalQuestion(question *opentdb.Question) map[string]interface{} {
-	hash := map[string]interface{}{}
-	hash["Category"] = question.Category
-	hash["Type"] = question.Type
-	hash["Difficulty"] = question.Difficulty
-	hash["Question"] = question.Question
-	hash["CorrectAnswer"] = question.CorrectAnswer
-	hash["IncorrectAnswers"] = question.IncorrectAnswers
-	return hash
-}
+var errQuestionAlreadyGiven = errors.New("question already given")
 
+// only commits if question does not exist in redis. if it exists, return
+// errQuestionAlreadyGiven
 func (svc *Service) commitQuestion(ctx context.Context, question *opentdb.Question) error {
 	key, err := hashQuestion(question)
 	if err != nil {
 		return err
 	}
 
-	return svc.QuestionsDB.WithContext(ctx).HMSet(key, marshalQuestion(question)).Err()
+	questionJSON, err := json.Marshal(question)
+	if err != nil {
+		return err
+	}
+
+	var expiry = 60 * time.Minute
+	set, err := svc.QuestionsDB.WithContext(ctx).SetNX(key, string(questionJSON), expiry).Result()
+	if err != nil {
+		return err
+	}
+	if !set {
+		return errQuestionAlreadyGiven
+	}
+	return nil
 }
 
 func (svc *Service) shuffleChoices(choices []string) {
@@ -37,7 +46,7 @@ func (svc *Service) shuffleChoices(choices []string) {
 // GiveQuestion implements Trivia
 func (svc *Service) GiveQuestion(ctx context.Context, opt *GiveQuestionInput) (*empty.Empty, error) {
 	// retrieve question from api
-	question, err := opentdb.GetQuestion(ctx, &opentdb.QuestionParameters{
+	question, err := svc.GetQuestion(ctx, &opentdb.QuestionParameters{
 		Difficulty: opt.GetDifficulty().String(),
 	})
 	if err != nil {
@@ -48,6 +57,10 @@ func (svc *Service) GiveQuestion(ctx context.Context, opt *GiveQuestionInput) (*
 	// reaction
 	err = svc.commitQuestion(ctx, question)
 	if err != nil {
+		// if question has already been committed to redis, try again
+		if err == errQuestionAlreadyGiven {
+			return svc.GiveQuestion(ctx, opt)
+		}
 		return nil, err
 	}
 
