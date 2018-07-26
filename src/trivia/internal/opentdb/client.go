@@ -11,6 +11,8 @@ import (
 	"strings"
 )
 
+const userAgent = "packagebot opentdb client (github.com/bsdlp/packagebot)"
+
 type apiResponse struct {
 	ResponseCode int        `json:"response_code"`
 	Results      []question `json:"results"`
@@ -82,7 +84,14 @@ type QuestionParameters struct {
 
 // GetQuestion retrieves a trivia question
 func GetQuestion(ctx context.Context, opts *QuestionParameters) (question *Question, err error) {
-	resp, err := http.Get(buildURL(opts))
+	req, err := http.NewRequest(http.MethodGet, buildURL(opts), http.NoBody)
+	if err != nil {
+		return
+	}
+	req = req.WithContext(ctx)
+	req.Header.Set("User-Agent", userAgent)
+
+	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return
 	}
