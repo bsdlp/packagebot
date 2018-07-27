@@ -7,6 +7,10 @@
     {
       "Repository": "github.com/twitchtv/twirp/protoc-gen-twirp",
       "Commit": "cafc5e80fca7798e94ce566e8c4890460884a66f"
+    },
+    {
+      "Repository": "github.com/gobuffalo/packr/packr",
+      "Commit": "e1c38da9066ce759d1f8950858b4cf627d334ec3"
     }
   ],
   "RetoolVersion": "1.3.3"
