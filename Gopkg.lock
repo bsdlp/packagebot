@@ -2,66 +2,105 @@
 
 
 [[projects]]
+  digest = "1:66a20245248724f65c5991bd4c363f447d8a42439c3f791843790a41dbbd7a3d"
   name = "github.com/akrylysov/algnhsa"
   packages = ["."]
+  pruneopts = "UT"
   revision = "3408c47d3eee81bb7f6a4e6ebe20e9121a13f385"
   version = "v0.7"
 
 [[projects]]
+  digest = "1:6c8d51660e50d38116fe8c29eefc00ce856300329993980f7ce7333a522a6a99"
   name = "github.com/aws/aws-lambda-go"
   packages = [
     "events",
     "lambda",
     "lambda/messages",
-    "lambdacontext"
+    "lambdacontext",
   ]
+  pruneopts = "UT"
   revision = "4d30d0ff60440c2d0480a15747c96ee71c3c53d4"
   version = "v1.2.0"
 
 [[projects]]
+  digest = "1:a2c1d0e43bd3baaa071d1b9ed72c27d78169b2b269f71c105ac4ba34b1be4a39"
   name = "github.com/davecgh/go-spew"
   packages = ["spew"]
+  pruneopts = "UT"
   revision = "346938d642f2ec3594ed81d874461961cd0faa76"
   version = "v1.1.0"
 
 [[projects]]
+  digest = "1:2155aded3b7f51598751f556d9a524d92b35ad4aa4bb41f2d69a0f4ca76a5bfd"
+  name = "github.com/gobuffalo/packr"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "9e76dbe10b00dd1fa8f29cfa4fac72297beb32a4"
+  version = "v1.12.1"
+
+[[projects]]
+  digest = "1:7e84d43e13c40dd0e5982be013881b5ced48550237cfb35e12e0579d31f6276a"
   name = "github.com/golang/protobuf"
   packages = [
     "jsonpb",
     "proto",
-    "ptypes/struct"
+    "ptypes/struct",
   ]
+  pruneopts = "UT"
   revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
   version = "v1.1.0"
 
 [[projects]]
+  digest = "1:40e195917a951a8bf867cd05de2a46aaf1806c50cf92eebf4c16f78cd196f747"
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
+  version = "v0.8.0"
+
+[[projects]]
+  digest = "1:0028cb19b2e4c3112225cd871870f2d9cf49b9b4276531f03438a88e94be86fe"
   name = "github.com/pmezard/go-difflib"
   packages = ["difflib"]
+  pruneopts = "UT"
   revision = "792786c7400a136282c1664665ae0a8db921c6c2"
   version = "v1.0.0"
 
 [[projects]]
+  digest = "1:c40d65817cdd41fac9aa7af8bed56927bb2d6d47e4fea566a74880f5c2b1c41e"
   name = "github.com/stretchr/testify"
   packages = [
     "assert",
-    "require"
+    "require",
   ]
+  pruneopts = "UT"
   revision = "f35b8ab0b5a2cef36673838d662e249dd9c94686"
   version = "v1.2.2"
 
 [[projects]]
+  digest = "1:e846eb60aab81e27464b50b882378b6b8b8fb1a7fdfd4e30e39c8c1c00057adf"
   name = "github.com/twitchtv/twirp"
   packages = [
     ".",
     "ctxsetters",
-    "internal/contextkeys"
+    "internal/contextkeys",
   ]
+  pruneopts = "UT"
   revision = "1b8455b42110feb46a56aeec1ea0020067f46b11"
   version = "v5.4.1"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8b6e9f0a38d02d9b6ad8748009a0ed15ecddd5d7c9f3582679a5dc3c9508e639"
+  input-imports = [
+    "github.com/akrylysov/algnhsa",
+    "github.com/gobuffalo/packr",
+    "github.com/golang/protobuf/jsonpb",
+    "github.com/golang/protobuf/proto",
+    "github.com/stretchr/testify/assert",
+    "github.com/stretchr/testify/require",
+    "github.com/twitchtv/twirp",
+    "github.com/twitchtv/twirp/ctxsetters",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
