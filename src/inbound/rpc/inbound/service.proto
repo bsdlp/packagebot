@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package bsdlp.packagebot.inbound;
+option go_package = "inbound";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+service Inbound {
+    rpc ProcessRequest(Request) returns (google.protobuf.Empty);
+}
+
+message Request {
+    string discord_user = 1;
+    string discord_message_id = 2;
+    string discord_channel_id = 3;
+    string raw_message = 4;
+    google.protobuf.Timestamp message_timestamp = 5;
+    google.protobuf.Timestamp received_timestamp = 6;
+}
